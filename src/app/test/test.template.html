@@ -1,1 +1,18 @@
 <h3>{{testVar}}</h3>
+<div>
+  <label>Input :  </label>
+<input [(ngModel)]="inputValue"  type="text">
+
+<label>
+  <button [disabled]="!inputValue" (click)="insertData()">Add</button>
+</label>
+<div>{{inputValue}}</div>
+</div>
+<table frame="box">
+  <thead>
+    <tr><th>:)</th><th  (click)="toogle()">{{show ? "Name": "No"}}</th><th>Id</th></tr>
+  </thead>
+<tbody>
+  <tr *ngFor="let n of products; let i = index;"><td><button (click)=delete(i)>Delete</button></td><td><div *ngIf="show">{{n.name}}</div></td><td>{{n.id}}</td></tr>
+</tbody>
+<table>
