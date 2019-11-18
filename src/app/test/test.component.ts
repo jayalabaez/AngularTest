@@ -21,10 +21,13 @@ ngOnInit(){
   this.addToSource(this.products);
 }
 
+
+
+
 insertData():void{
 if(this.inputValue){this.products.push(new Product({name:this.inputValue,id:0}));
 this.inputValue = "";}
-
+this.addToSource(this.products);
 };
 
 addToSource(data){
@@ -85,7 +88,7 @@ pristineUpdate(index){
 let pristineProduct:Product = this.products[index].pristineValue;
 
 this.products[index].name = pristineProduct.name;
-
+this.addToSource(this.products);
 }
 
 cancelUpdate(index):void{
@@ -102,10 +105,14 @@ this.toogleUpdate(index);
 delete(index){
   debugger;
 this.products.splice(index,1);
+this.addToSource(this.products);
 
 };
 
 }
+
+
+
 
 interface KeyValuePair<K,V> extends Array<K|V>{
 0:K;
