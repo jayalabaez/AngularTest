@@ -14,12 +14,13 @@
 
 </div>
 <br>
-<table frame="box">
+<table frame="box" style="margin-left:45px" >
+  <ng-container *ngIf="products.length > 0">
   <thead>
     <tr><th>Action</th><th  (click)="toogle()">{{show ? "Name": "No"}}</th><th>Id</th></tr>
   </thead>
 <tbody>
-  <ng-container *ngIf=products>
+  
   <tr *ngFor="let n of products; let i = index;"  >
     <td>
       <button *ngIf="!n.showUpdate"  (click)=delete(i)>Delete</button>
@@ -34,12 +35,14 @@
         {{n.id}}
       </td>
     </tr>
+  
+ 
+</tbody>
   </ng-container>
-    <ng-container *ngIf="products.length == 0">
+     <ng-container *ngIf="products.length == 0">
   <tr >
    <td>No Elements on table to show!</td>
     </tr>
   </ng-container>
-</tbody>
 <table>
   
