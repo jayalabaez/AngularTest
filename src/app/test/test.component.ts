@@ -1,4 +1,4 @@
-import {Component} from '@angular/core'
+import {Component , OnInit} from '@angular/core'
 
 @Component({
 selector : 'test-cm',
@@ -6,9 +6,9 @@ templateUrl : './test.template.html'
 
 })
 
-export class TestComponent {
+export class TestComponent implements OnInit {
 testVar : string = 'Test Vars'
-products : Array<Product> = Product.createProducts();
+products : Array<Product>;
 show : boolean  = true;
 inputValue:string;
 filterValue:string;
@@ -16,21 +16,27 @@ pristineProduct : Product;
 pristineProducts : Array<KeyValuePair<number,Product>> = new Array<KeyValuePair<number,Product>>();
 productsFromSource :Array<Product>;
 
+ngOnInit(){
+  this.products = Product.createProducts();
+  this.addToSource(this.products);
+}
+
 insertData():void{
 if(this.inputValue){this.products.push(new Product({name:this.inputValue,id:0}));
 this.inputValue = "";}
 
 };
 
-addToSource(){
-  if(!this.productsFromSource){ this.productsFromSource = Object.assign([],this.products);}
+addToSource(data){
+this.productsFromSource = Object.assign([],data);
   
-   }
+}
+
 
 onSearch():void{
 
-if(this.filterValue.length > 3){
-this.addToSource();
+if(this.filterValue.length > 2){
+
 let pp = this.products.filter(n => n.name.match(this.filterValue));
 debugger;
 if(pp.length > 0){
