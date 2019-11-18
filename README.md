@@ -1,3 +1,3 @@
-# angular-muqnxe
+# Angular Test
 
-[Edit on StackBlitz ⚡️](https://stackblitz.com/edit/angular-muqnxe)
+[Edit on StackBlitz ⚡️](https://stackblitz.com/edit/joelangulartest)
