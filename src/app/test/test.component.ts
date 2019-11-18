@@ -28,14 +28,15 @@ onSearch():void{
 if(this.filterValue.length > 2){
 
 let pp = this.products.filter(n => n.name.match(this.filterValue));
+debugger;
 if(pp.length > 0){
-
+debugger;
   this.productsFromSource = Object.assign([],this.products);
-  this.productsFromSource = pp;
+  this.products = pp;
 }
 
-}else{
-
+}else if(this.filterValue == ""){
+debugger;
 this.products = this.productsFromSource;
 
 }
