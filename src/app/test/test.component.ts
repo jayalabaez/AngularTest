@@ -11,7 +11,9 @@ testVar : string = 'Test Vars'
 products : Array<Product> = Product.createProducts();
 show : boolean  = true;
 inputValue:string;
-pristineProducts : Array({nmae:strin);
+pristineProduct : Product;
+pristineProducts : Array<KeyValuePair<number,Product>> = new Array<KeyValuePair<number,Product>>();
+
 insertData():void{
 if(this.inputValue){this.products.push(new Product({name:this.inputValue,id:0}));
 this.inputValue = "";}
@@ -23,10 +25,24 @@ toogle():void{
 this.show = !this.show;
 };
 toogleUpdate(index):void { 
-this.pristineProducts.push([index,this.products[index]])
+
+let toAdd:Product = Object.assign({},this.products[index]);
+this.products[index].pristineValue =  toAdd;
+// let valuePair : KeyValuePair<number,Product> = [index,toAdd];
+// this.pristineProducts.push(valuePair);
+
+
+
+//let test:Product|number = this.pristineProducts.find(s=> s[0] == index)[1];
+
 //this.pristineProduct = Object.assign({},this.products[index]);
+
+
+//this.pristineProducts.push([index,this.products[index]])
+
 //this.pristineProduct =  this.products[index];
 //this.products[index].showUpdate  != this.products[index].showUpdate;
+
 if(this.products[index].showUpdate){
 this.products[index].showUpdate = false;
 }else{this.products[index].showUpdate=true}
@@ -34,8 +50,10 @@ this.products[index].showUpdate = false;
 }
 
 cancelUpdate(index):void{
-this.products[index] = this.pristineProduct;
-this.pristineProduct = new Product();
+let pristineProduct:Product = this.products[index].pristineValue;
+//let pristineProduct:Product|number = this.pristineProducts.find(s=> s[0] == index)[1];
+this.products[index].name = pristineProduct.name;
+debugger;
 this.toogleUpdate(index);
 }
 saveRow():void{
@@ -50,13 +68,21 @@ this.products.splice(index,1);
 
 }
 
-class UpadateRow {
+interface KeyValuePair<K,V> extends Array<K|V>{
+0:K;
+1:V;
+}
+
+
+
+class UpadateRow<V> {
 
   showUpdate : boolean = false;
+  pristineValue : V
 
 }
 
-class Product extends UpadateRow{
+class Product extends UpadateRow<Product>{
 name:string = "fff";
 id:number = 90;
 
