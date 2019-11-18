@@ -1,7 +1,7 @@
 <h3>{{testVar}}</h3>
 <div>
   <label>Filter :  </label>
-<input [(ngModel)]="filterValue"  type="text">
+<input type="search" (input)="onSearch()"    [(ngModel)]="filterValue"  type="text">
 </div>
 <br>
 <div>

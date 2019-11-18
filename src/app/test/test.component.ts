@@ -14,6 +14,7 @@ inputValue:string;
 filterValue:string;
 pristineProduct : Product;
 pristineProducts : Array<KeyValuePair<number,Product>> = new Array<KeyValuePair<number,Product>>();
+productsFromSource :Array<Product>;
 
 insertData():void{
 if(this.inputValue){this.products.push(new Product({name:this.inputValue,id:0}));
@@ -21,6 +22,24 @@ this.inputValue = "";}
 
 };
 
+
+onSearch():void{
+
+if(this.filterValue.length > 2){
+
+let pp = this.products.filter(n => n.name.match(this.filterValue));
+if(pp.length > 0){
+
+  this.productsFromSource = Object.assign([],this.products);
+  this.productsFromSource = pp;
+}
+
+}else{
+
+this.products = this.productsFromSource;
+
+}
+}
 toogle():void{ 
 
 this.show = !this.show;
