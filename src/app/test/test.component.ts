@@ -49,6 +49,8 @@ this.products[index].showUpdate = false;
 
 }
 
+pristineUpdate(index)
+
 cancelUpdate(index):void{
 let pristineProduct:Product = this.products[index].pristineValue;
 //let pristineProduct:Product|number = this.pristineProducts.find(s=> s[0] == index)[1];
@@ -56,8 +58,11 @@ this.products[index].name = pristineProduct.name;
 debugger;
 this.toogleUpdate(index);
 }
-saveRow():void{
+saveRow(index):void{
 
+//======Save Opertation Here.
+
+this.toogleUpdate(index);
 }
 
 delete(index){
