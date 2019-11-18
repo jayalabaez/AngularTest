@@ -22,16 +22,21 @@ this.inputValue = "";}
 
 };
 
+addToSource(){
+  if(!this.productsFromSource){ this.productsFromSource = Object.assign([],this.products);}
+  
+   }
 
 onSearch():void{
 
 if(this.filterValue.length > 2){
-
+this.addToSource();
 let pp = this.products.filter(n => n.name.match(this.filterValue));
 debugger;
 if(pp.length > 0){
 debugger;
-  this.productsFromSource = Object.assign([],this.products);
+
+ 
   this.products = pp;
 }
 
