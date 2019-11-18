@@ -29,7 +29,7 @@ addToSource(){
 
 onSearch():void{
 
-if(this.filterValue.length > 2){
+if(this.filterValue.length > 3){
 this.addToSource();
 let pp = this.products.filter(n => n.name.match(this.filterValue));
 debugger;
