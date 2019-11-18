@@ -1,11 +1,11 @@
 import {Component , OnInit}  from "@angular/core"
 
 @Component({
-selector:"pagingController",
+selector:"pag-cm",
 templateUrl:"./paging.component.html"
 
 })
-class PagingComponent implements OnInit{
+export class PagingComponent implements OnInit{
 ngOnInit(){}
 
 }
