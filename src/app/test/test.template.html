@@ -13,7 +13,7 @@
     <tr><th>:)</th><th  (click)="toogle()">{{show ? "Name": "No"}}</th><th>Id</th></tr>
   </thead>
 <tbody>
-  <ng-container *ngIf=!products>
+  <ng-container *ngIf=products>
   <tr *ngFor="let n of products; let i = index;"  >
     <td>
       <button *ngIf="!n.showUpdate"  (click)=delete(i)>Delete</button>
@@ -23,14 +23,15 @@
     </td>
    
     <td>
-      <div *ngIf="!n.showUpdate"  >{{n.name}}</div></td><td>{{n.id}}
-      <div *ngIf="n.showUpdate"  ><input  [(ngModel)]="n.name" /></div></td><td>{{n.id}}
+      <div *ngIf="!n.showUpdate"  >{{n.name}}</div><div *ngIf="n.showUpdate"  ><input  [(ngModel)]="n.name" /></div></td>
+      <td >
+        {{n.id}}
       </td>
     </tr>
   </ng-container>
-    <ng-container *ngIf=!products>
+    <ng-container *ngIf="products.length == 0">
   <tr >
-<td>No Elements on table to show!</td>
+   <td>No Elements on table to show!</td>
     </tr>
   </ng-container>
 </tbody>
