@@ -11,6 +11,7 @@ testVar : string = 'Test Vars'
 products : Array<Product> = Product.createProducts();
 show : boolean  = true;
 inputValue:string;
+filterValue:string;
 pristineProduct : Product;
 pristineProducts : Array<KeyValuePair<number,Product>> = new Array<KeyValuePair<number,Product>>();
 

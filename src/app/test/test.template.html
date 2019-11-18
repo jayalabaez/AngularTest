@@ -1,16 +1,22 @@
 <h3>{{testVar}}</h3>
 <div>
+  <label>Filter :  </label>
+<input [(ngModel)]="filterValue"  type="text">
+</div>
+<br>
+<div>
   <label>Input :  </label>
 <input [(ngModel)]="inputValue"  type="text">
 
 <label>
   <button [disabled]="!inputValue" (click)="insertData()">Add</button>
 </label>
-<div>{{inputValue}}</div>
+
 </div>
+<br>
 <table frame="box">
   <thead>
-    <tr><th>:)</th><th  (click)="toogle()">{{show ? "Name": "No"}}</th><th>Id</th></tr>
+    <tr><th>Action</th><th  (click)="toogle()">{{show ? "Name": "No"}}</th><th>Id</th></tr>
   </thead>
 <tbody>
   <ng-container *ngIf=products>
