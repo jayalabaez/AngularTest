@@ -3,7 +3,7 @@
   </select>
   <div>
     <label>PageSize</label>
-    <input type="number" [(ngModel)]="pageSize" />
+    <input (change)="ngOnInit()" type="number" [(ngModel)]="pageSize" />
    <br>
   </div>
 

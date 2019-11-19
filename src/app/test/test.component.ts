@@ -40,7 +40,7 @@ onSearch():void{
 
 if(this.filterValue.length > 0){
 
-let pp = this.productsFromSource.filter(n => n.name.toLocaleLowerCase().match(this.filterValue) || n.ammount.match(this.filterValue) );
+let pp = this.productsFromSource.filter(n => n.name.toLocaleLowerCase().match(this.filterValue.toLocaleLowerCase()) || n.ammount.match(this.filterValue) );
 debugger;
 if(pp.length > 0){
 debugger;
