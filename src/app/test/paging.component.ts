@@ -17,7 +17,7 @@ pageSelected:number = 1;
 
 addPages(n:number){
 this.pages = [];
-  for(let i:number = 0 ; i<n;i++){
+  for(let i:number = 1 ; i<n;i++){
     this.pages.push(i);
   }
 }
