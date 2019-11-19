@@ -8,10 +8,11 @@ templateUrl:"./paging.component.html"
 export class PagingComponent implements OnInit{
 @Input()
 total:number;
+
 @Input()
 pageSize:number;
 
-pages:Array<number>=[1,2,3,4];
+pages:Array<number>;
 pageSelected:number = 1;
 
 
@@ -24,12 +25,11 @@ this.pages = [];
 
 ngOnInit(){
 debugger;
-let f:number = this.total;
-let d:number = this.pageSize;
-if(f<=d)
+if(parseInt(<string><unknown>this.pageSize) > +this.total)
  {
-   this.pageSelected =1;
+  debugger;
    this.pages = [1];
+    this.pageSelected =1;
  }else{
   
        if(<number>this.total%<number>this.pageSize == 0)
