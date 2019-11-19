@@ -25,7 +25,7 @@ ngOnInit(){
 
 
 insertData():void{
-if(this.inputValue){this.products.push(new Product({name:this.inputValue,id:0}));
+if(this.inputValue){this.products.push(new Product({name:this.inputValue,id:0,ammount:"25"}));
 this.inputValue = "";}
 this.addToSource(this.products);
 };
@@ -40,7 +40,7 @@ onSearch():void{
 
 if(this.filterValue.length > 0){
 
-let pp = this.productsFromSource.filter(n => n.name.toLocaleLowerCase().match(this.filterValue));
+let pp = this.productsFromSource.filter(n => n.name.toLocaleLowerCase().match(this.filterValue) || n.ammount.match(this.filterValue) );
 debugger;
 if(pp.length > 0){
 debugger;
@@ -55,10 +55,13 @@ this.products = this.productsFromSource;
 
 }
 }
+
 toogle():void{ 
 
 this.show = !this.show;
 };
+
+
 toogleUpdate(index):void { 
 
 let toAdd:Product = Object.assign({},this.products[index]);
@@ -130,6 +133,7 @@ class UpadateRow<V> {
 
 class Product extends UpadateRow<Product>{
 name:string = "fff";
+ammount = "5559991234"
 id:number = 90;
 
    public constructor(init?:Partial<Product>) {
@@ -144,13 +148,13 @@ let buffer : Array<Product> =new Array<Product>();
 
 
 for(let i = 0; i<5; i++){
-let toAdd = new Product({name:(String(i)+"joel"), id:i});
+let toAdd = new Product({name:(String(i)+"joel"), id:i , ammount:"876"});
 buffer.push(toAdd);
 }
-buffer.push(new Product({name:"Luis", id:0}));
-buffer.push(new Product({name:"Liam", id:0}));
-buffer.push(new Product({name:"Luillo", id:0}));
-buffer.push(new Product({name:"Elpiel", id:0}));
+buffer.push(new Product({name:"Luis", id:0 ,  ammount:"7875"}));
+buffer.push(new Product({name:"Liam", id:0 ,  ammount:"93"}));
+buffer.push(new Product({name:"Luillo", id:0 ,  ammount:"445"}));
+buffer.push(new Product({name:"Elpiel", id:0 ,  ammount:"7877"}));
 return buffer;
 };
 

@@ -18,7 +18,7 @@
 <table frame="box" class="table" >
   <ng-container *ngIf="products.length > 0">
   <thead>
-    <tr><th>Action</th><th  (click)="toogle()">{{show ? "Name": "No"}}</th><th>Id</th></tr>
+    <tr><th>Action</th><th  (click)="toogle()">{{show ? "Name": "No"}}</th><th>Ammount</th><th>Id</th></tr>
   </thead>
 <tbody>
   
@@ -32,6 +32,8 @@
    
     <td>
       <div *ngIf="!n.showUpdate"  >{{n.name}}</div><div *ngIf="n.showUpdate"  ><input  class="form-control" [(ngModel)]="n.name" /></div></td>
+       <td>
+      <div *ngIf="!n.showUpdate"  >{{n.ammount|currency}}</div><div *ngIf="n.showUpdate"  ><input  class="form-control" [(ngModel)]="n.ammount" /></div></td>
       <td >
         {{n.id}}
       </td>
