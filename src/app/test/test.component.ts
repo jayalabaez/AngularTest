@@ -38,9 +38,9 @@ this.productsFromSource = Object.assign([],data);
 
 onSearch():void{
 
-if(this.filterValue.length > 2){
+if(this.filterValue.length > 0){
 
-let pp = this.products.filter(n => n.name.match(this.filterValue));
+let pp = this.productsFromSource.filter(n => n.name.match(this.filterValue));
 debugger;
 if(pp.length > 0){
 debugger;
