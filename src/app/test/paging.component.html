@@ -1,1 +1,20 @@
-<div><h1>Paging</h1></div>
+  <select [(ngModel)]="pageSelected" >
+    <option *ngFor="let n of pages" >{{n}}</option>
+  </select>
+  <div>
+    <label>PageSize</label>
+    <input type="number" [(ngModel)]="pageSize" />
+   <br>
+  </div>
+
+    <div>
+    <label>show</label>
+    <input type="number" [(ngModel)]="pageSelected" />
+   <br>
+  </div>
+
+    <div>
+    <label>Total</label>
+    <input (change)="adjustPage()" type="number" [(ngModel)]="total" />
+   <br>
+  </div>
