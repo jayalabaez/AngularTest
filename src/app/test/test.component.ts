@@ -143,10 +143,14 @@ let buffer : Array<Product> =new Array<Product>();
 
 
 
-for(let i = 0; i<10; i++){
+for(let i = 0; i<5; i++){
 let toAdd = new Product({name:(String(i)+"joel"), id:i});
 buffer.push(toAdd);
 }
+buffer.push(new Product({name:"Luis", id:0}));
+buffer.push(new Product({name:"Liam", id:0}));
+buffer.push(new Product({name:"Luillo", id:0}));
+buffer.push(new Product({name:"Elpiel", id:0}));
 return buffer;
 };
 
