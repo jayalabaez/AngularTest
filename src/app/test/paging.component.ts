@@ -25,7 +25,7 @@ this.pages = [];
 
 ngOnInit(){
 debugger;
-if(parseInt(<string><unknown>this.pageSize) > +this.total)
+if(parseInt(<string><unknown>this.pageSize) > this.total)
  {
   debugger;
    this.pages = [1];
@@ -49,9 +49,6 @@ if(parseInt(<string><unknown>this.pageSize) > +this.total)
            }
 
       }
-
 }
-
-
 
 }
