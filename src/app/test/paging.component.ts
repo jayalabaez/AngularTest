@@ -14,11 +14,11 @@ pageSize:number;
 pages:Array<number>=[1,2,3,4];
 pageSelected:number = 2;
 
-adjustPage():void{}
+
 
 ngOnInit(){
-
-if(this.total<this.pageSize)
+debugger;
+if(this.total<=this.pageSize)
 {
 this.pageSelected =1;
 this.pages = [1];
