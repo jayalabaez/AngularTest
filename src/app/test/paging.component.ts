@@ -24,13 +24,15 @@ this.pages = [];
 
 ngOnInit(){
 debugger;
-if(this.total<=this.pageSize)
+let f:number = this.total;
+let d:number = this.pageSize;
+if(f<=d)
  {
    this.pageSelected =1;
    this.pages = [1];
  }else{
   
-       if(this.total%this.pageSize == 0)
+       if(<number>this.total%<number>this.pageSize == 0)
            {
             this.addPages(this.total/this.pageSize);   
            }
