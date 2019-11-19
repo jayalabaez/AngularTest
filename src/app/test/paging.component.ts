@@ -39,9 +39,10 @@ if(this.total<=this.pageSize)
              if(Math.floor(total) > 0){
 
                ++total; 
+     
              }
 
-            this.addPages(total);
+            this.addPages(Math.ceil(total));
 
            }
 
