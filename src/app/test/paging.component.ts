@@ -1,4 +1,4 @@
-import {Component , OnInit , Input}  from "@angular/core"
+import {Component , OnInit , Input ,Output}  from "@angular/core"
 
 @Component({
 selector:"pag-cm",
@@ -11,10 +11,10 @@ total:number;
 
 @Input()
 pageSize:number;
-
 pages:Array<number>;
 pageSelected:number = 1;
 
+@Output() notify : EventEmitter<string> = new EventEmitter<string>();
 
 addPages(n:number){
 this.pages = [];
@@ -49,6 +49,8 @@ if(parseInt(<string><unknown>this.pageSize) > this.total)
            }
 
       }
-}
+};
+
+
 
 }
