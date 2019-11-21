@@ -15,14 +15,14 @@ filterValue:string;
 pristineProduct : Product;
 pristineProducts : Array<KeyValuePair<number,Product>> = new Array<KeyValuePair<number,Product>>();
 productsFromSource :Array<Product>;
-
+pageSize:number=10;
 ngOnInit(){
   this.products = Product.createProducts();
   this.addToSource(this.products);
 }
 
 
-onPagingNotify(skip:number){
+onPagingNotify(skip:any){
 
 debugger;
 

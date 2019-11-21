@@ -15,22 +15,17 @@ pages:Array<number>;
 pageSelected:number = 1;
 skip:number;
 take:number;
-@Output() notify : EventEmitter<number> = new EventEmitter<number>();
+@Output() notify : EventEmitter<any> = new EventEmitter<any>();
 
-onTotalChange():void{
-
-this.notify.emit(100);
-
-}
 
 addPages(n:number){
 this.pages = [];
-  for(let i:number = 1 ; i<n;i++){
+  for(let i:number = 1 ; i<=n;i++){
     this.pages.push(i);
   }
-
+debugger;
  this.skip = (this.pageSelected - 1) * this.pageSize;
- this.notify.emit(this.skip);
+ this.notify.emit({skip:this.skip, take:this.pageSize});
 
 }
 
@@ -39,7 +34,7 @@ debugger;
 if(parseInt(<string><unknown>this.pageSize) > this.total)
  {
   debugger;
-   this.addPages(2);
+   this.addPages(1);
     this.pageSelected =1;
   
  }else{
@@ -58,7 +53,7 @@ if(parseInt(<string><unknown>this.pageSize) > this.total)
      
              }
 
-            this.addPages(Math.ceil(total));
+            this.addPages(total);
 
            }
 
