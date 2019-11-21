@@ -29,7 +29,7 @@ debugger;
 }
 
 insertData():void{
-if(this.inputValue){this.products.push(new Product({name:this.inputValue,id:random(),ammount:"25"}));
+if(this.inputValue){this.products.push(new Product({name:this.inputValue,id:this.random(),ammount:"25"}));
 this.inputValue = "";}
 this.addToSource(this.products);
 };
@@ -98,8 +98,6 @@ this.products[index].name = pristineProduct.name;
 this.addToSource(this.products);
 }
 
-
-
 cancelUpdate(index):void{
 this.pristineUpdate(index);
 this.toogleUpdate(index);
@@ -111,13 +109,28 @@ saveRow(index):void{
 this.toogleUpdate(index);
 }
 
+random=():number => {
+  
+  return((Math.floor(Math.random()*100000))+1)
+  
+  };
+
 delete(index){
-  debugger;
+  
+
+let toDelete = this.products[index].id;
 this.products.splice(index,1);
 
-this.addToSource(this.products);
+this.updateSource(toDelete);
 
 };
+
+updateSource(id:number){
+
+this.productsFromSource = this.productsFromSource.filter((n)=>{ n.id !== id});
+
+}
+
 
 }
 
@@ -146,12 +159,16 @@ id:number = 90;
 public static createProducts(): Array<Product>
 {
 let buffer : Array<Product> =new Array<Product>(); 
-
+let random=():number => {
+  
+  return((Math.floor(Math.random()*100000))+1)
+  
+  };
 for(let i = 0; i<18; i++){
-let toAdd = new Product({name:(String(i)+"joel"), id:this.random() , ammount:"876"});
+let toAdd = new Product({name:(String(i)+"joel"), id:random() , ammount:"876"});
 buffer.push(toAdd);
 }
-buffer.push(new Product({name:"Luis", id:this.random() ,  ammount:"7875"}));
+buffer.push(new Product({name:"Luis", id:random() ,  ammount:"7875"}));
 buffer.push(new Product({name:"Liam", id:random() ,  ammount:"93"}));
 buffer.push(new Product({name:"Luillo", id:random() ,  ammount:"445"}));
 buffer.push(new Product({name:"Elpiel", id:random() ,  ammount:"7877"}));
