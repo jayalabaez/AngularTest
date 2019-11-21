@@ -75,10 +75,10 @@ this.resetSelected();
 }
 
 ngOnInit(){
-debugger;
+
 if(parseInt(<string><unknown>this.pageSize) > this.total)
  {
-  debugger;
+
    this.addPages(1);
     this.pageSelected =1;
   

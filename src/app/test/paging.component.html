@@ -1,20 +1,24 @@
+  <label>Page</label>
   <select [(ngModel)]="pageSelected"  (change)="ngOnInit()"  >
     <option *ngFor="let n of pages" >{{n}}</option>
   </select>
   <div>
+    <br>
     <label>PageSize</label>
     <input (change)="ngOnInit()"  type="number" [(ngModel)]="pageSize" />
    <br>
   </div>
 
-    <div>
+<!--    
+  <div>
     <label>show</label>
     <input type="number" [(ngModel)]="pages.length" />
    <br>
-  </div>
+  </div>   
+   -->
 
     <div>
     <label>Total</label>
-    <input (change)="ngOnInit()" type="number" [(ngModel)]="total" />
+    <input disabled (change)="ngOnInit()" type="number" [(ngModel)]="total" />
    <br>
   </div>

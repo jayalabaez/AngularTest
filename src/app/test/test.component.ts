@@ -22,10 +22,10 @@ ngOnInit(){
 }
 
 
-onPagingNotify(skip:any){
-
+onPagingNotify(data){
 debugger;
-
+this.products = this.productsFromSource.slice(data.skip,(data.skip+data.take));
+debugger;
 }
 
 insertData():void{
@@ -45,16 +45,16 @@ onSearch():void{
 if(this.filterValue.length > 0){
 
 let pp = this.productsFromSource.filter(n => n.name.toLocaleLowerCase().match(this.filterValue.toLocaleLowerCase()) || n.ammount.match(this.filterValue) );
-debugger;
+
 if(pp.length > 0){
-debugger;
+
 
  
   this.products = pp;
 }
 
 }else if(this.filterValue == ""){
-debugger;
+
 this.products = this.productsFromSource;
 
 }
