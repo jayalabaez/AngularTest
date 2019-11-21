@@ -29,7 +29,7 @@ debugger;
 }
 
 insertData():void{
-if(this.inputValue){this.products.push(new Product({name:this.inputValue,id:0,ammount:"25"}));
+if(this.inputValue){this.products.push(new Product({name:this.inputValue,id:random(),ammount:"25"}));
 this.inputValue = "";}
 this.addToSource(this.products);
 };
@@ -98,6 +98,8 @@ this.products[index].name = pristineProduct.name;
 this.addToSource(this.products);
 }
 
+
+
 cancelUpdate(index):void{
 this.pristineUpdate(index);
 this.toogleUpdate(index);
@@ -112,21 +114,17 @@ this.toogleUpdate(index);
 delete(index){
   debugger;
 this.products.splice(index,1);
+
 this.addToSource(this.products);
 
 };
 
 }
 
-
-
-
 interface KeyValuePair<K,V> extends Array<K|V>{
 0:K;
 1:V;
 }
-
-
 
 class UpadateRow<V> {
 
@@ -149,18 +147,15 @@ public static createProducts(): Array<Product>
 {
 let buffer : Array<Product> =new Array<Product>(); 
 
-
-
-for(let i = 0; i<5; i++){
-let toAdd = new Product({name:(String(i)+"joel"), id:i , ammount:"876"});
+for(let i = 0; i<18; i++){
+let toAdd = new Product({name:(String(i)+"joel"), id:this.random() , ammount:"876"});
 buffer.push(toAdd);
 }
-buffer.push(new Product({name:"Luis", id:0 ,  ammount:"7875"}));
-buffer.push(new Product({name:"Liam", id:0 ,  ammount:"93"}));
-buffer.push(new Product({name:"Luillo", id:0 ,  ammount:"445"}));
-buffer.push(new Product({name:"Elpiel", id:0 ,  ammount:"7877"}));
+buffer.push(new Product({name:"Luis", id:this.random() ,  ammount:"7875"}));
+buffer.push(new Product({name:"Liam", id:random() ,  ammount:"93"}));
+buffer.push(new Product({name:"Luillo", id:random() ,  ammount:"445"}));
+buffer.push(new Product({name:"Elpiel", id:random() ,  ammount:"7877"}));
 return buffer;
 };
-
 
 }
