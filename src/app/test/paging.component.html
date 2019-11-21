@@ -1,9 +1,9 @@
-  <select [(ngModel)]="pageSelected" >
+  <select [(ngModel)]="pageSelected"  (change)="ngOnInit()"  >
     <option *ngFor="let n of pages" >{{n}}</option>
   </select>
   <div>
     <label>PageSize</label>
-    <input (change)="ngOnInit()" type="number" [(ngModel)]="pageSize" />
+    <input (change)="ngOnInit()"  type="number" [(ngModel)]="pageSize" />
    <br>
   </div>
 

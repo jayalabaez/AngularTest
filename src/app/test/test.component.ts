@@ -22,7 +22,11 @@ ngOnInit(){
 }
 
 
+onPagingNotify(skip){
 
+debugger;
+
+}
 
 insertData():void{
 if(this.inputValue){this.products.push(new Product({name:this.inputValue,id:0,ammount:"25"}));

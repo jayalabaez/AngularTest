@@ -1,4 +1,4 @@
-import {Component , OnInit , Input ,Output}  from "@angular/core"
+import {Component , OnInit , Input ,Output , EventEmitter}  from "@angular/core"
 
 @Component({
 selector:"pag-cm",
@@ -13,8 +13,15 @@ total:number;
 pageSize:number;
 pages:Array<number>;
 pageSelected:number = 1;
+skip:number;
+take:number;
+@Output() notify : EventEmitter<number> = new EventEmitter<number>();
 
-@Output() notify : EventEmitter<string> = new EventEmitter<string>();
+onTotalChange():void{
+
+this.notify.emit(100);
+
+}
 
 addPages(n:number){
 this.pages = [];
@@ -30,6 +37,7 @@ if(parseInt(<string><unknown>this.pageSize) > this.total)
   debugger;
    this.pages = [1];
     this.pageSelected =1;
+    this.skip = 0; 
  }else{
   
        if(<number>this.total%<number>this.pageSize == 0)
@@ -44,11 +52,15 @@ if(parseInt(<string><unknown>this.pageSize) > this.total)
      
              }
 
+            this.skip = (this.pageSelected - 1) * this.pageSize;
+            this.notify.emit(this.skip);
             this.addPages(Math.ceil(total));
 
            }
 
       }
+
+
 };
 
 
