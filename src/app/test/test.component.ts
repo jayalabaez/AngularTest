@@ -127,7 +127,7 @@ this.updateSource(toDelete);
 
 updateSource(id:number){
 
-this.productsFromSource = this.productsFromSource.filter((n)=>{ n.id !== id});
+this.productsFromSource = this.productsFromSource.filter((n)=> n.id != id );
 
 }
 
@@ -164,7 +164,7 @@ let random=():number => {
   return((Math.floor(Math.random()*100000))+1)
   
   };
-for(let i = 0; i<18; i++){
+for(let i = 0; i<1; i++){
 let toAdd = new Product({name:(String(i)+"joel"), id:random() , ammount:"876"});
 buffer.push(toAdd);
 }
