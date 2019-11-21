@@ -28,6 +28,10 @@ this.pages = [];
   for(let i:number = 1 ; i<n;i++){
     this.pages.push(i);
   }
+
+ this.skip = (this.pageSelected - 1) * this.pageSize;
+ this.notify.emit(this.skip);
+
 }
 
 ngOnInit(){
@@ -35,14 +39,16 @@ debugger;
 if(parseInt(<string><unknown>this.pageSize) > this.total)
  {
   debugger;
-   this.pages = [1];
+   this.addPages(2);
     this.pageSelected =1;
-    this.skip = 0; 
+  
  }else{
   
        if(<number>this.total%<number>this.pageSize == 0)
            {
-            this.addPages(this.total/this.pageSize);   
+
+            this.addPages(this.total/this.pageSize);  
+             
            }
            else{
              let total:number = this.total/this.pageSize;
@@ -52,8 +58,6 @@ if(parseInt(<string><unknown>this.pageSize) > this.total)
      
              }
 
-            this.skip = (this.pageSelected - 1) * this.pageSize;
-            this.notify.emit(this.skip);
             this.addPages(Math.ceil(total));
 
            }

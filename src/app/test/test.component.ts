@@ -22,7 +22,7 @@ ngOnInit(){
 }
 
 
-onPagingNotify(skip){
+onPagingNotify(skip:number){
 
 debugger;
 
