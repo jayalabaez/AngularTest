@@ -70,7 +70,8 @@ this.ngOnInit();
 
 ngOnChanges(){
 
-this.resetSelected();
+//this.resetSelected();
+this.ngOnInit();
 
 }
 

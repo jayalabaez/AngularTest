@@ -21,6 +21,14 @@ ngOnInit(){
   this.addToSource(this.products);
 }
 
+getProducts():Array<Product>
+{
+debugger;
+ return this.filterValue ? this.products.splice(1,3) : this.products
+
+}
+
+
 
 onPagingNotify(data){
 debugger;

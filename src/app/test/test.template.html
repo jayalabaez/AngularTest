@@ -16,7 +16,7 @@
 <br>
 <div>
 <table frame="box" class="table" >
-  <ng-container *ngIf="products.length > 0">
+  <ng-container *ngIf="getProducts().length > 0">
   <thead>
     <tr><th>Action</th><th  (click)="toogle()">{{show ? "Name": "No"}}</th><th>Ammount</th><th>Id</th></tr>
   </thead>
