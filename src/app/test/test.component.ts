@@ -24,7 +24,7 @@ ngOnInit(){
 getProducts():Array<Product>
 {
 debugger;
- return this.filterValue ? this.products.splice(1,3) : this.products
+ return this.filterValue ? this.products.slice(1,4) : this.products
 
 }
 
